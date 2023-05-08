@@ -1,4 +1,4 @@
-.video-container {
+/* .video-container {
     position: relative;
     display: inline-block;
 }
@@ -18,6 +18,46 @@
     background-color: #2196F3;
 }
 
+.marker {
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 2px;
+    background-color: red;
+} */
+
+/* Hide the default video player's progress bar for Chrome and Chromium-based browsers */
+video::-webkit-media-controls-timeline,
+video::-webkit-media-controls-timeline-container,
+video::-webkit-media-controls-current-time-display,
+video::-webkit-media-controls-time-remaining-display {
+   display: none !important;
+}
+
+/* Optional styling for video-container */
+.video-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Styles for custom progress-bar */
+.progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 10px;
+    width: 100%;
+    background-color: #EEE;
+}
+
+/* Styles for custom progress */
+.progress {
+    position: absolute;
+    height: 10px;
+    background-color: #2196F3;
+}
+
+/* Styles for custom markers */
 .marker {
     position: absolute;
     bottom: 0;
