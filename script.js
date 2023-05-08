@@ -1,27 +1,32 @@
-const video = document.getElementById("video-player");
-const progressBar = document.getElementById("custom-progress-bar");
-const progress = document.getElementById("progress");
-const markers = document.getElementsByClassName("marker");
+const video = document.getElementById("my-video");
+const customSeekbar = document.getElementById("custom-seekbar");
+const highlightedTimestamp = document.getElementById("highlighted-timestamp");
+const timestampToHighlight = 60; // Set the timestamp in seconds you want to highlight
 
-// Position the markers based on their timestamp
-for (let marker of markers) {
-  const timestamp = parseFloat(marker.getAttribute("data-timestamp"));
-  const percentage = (timestamp / video.duration) * 100;
-  marker.style.left = percentage + "%";
-}
+video.addEventListener("timeupdate", () => {
+  const currentTime = video.currentTime;
+  const duration = video.duration;
+  const progressPercentage = (currentTime / duration) * 100;
+  
+  customSeekbar.style.width = progressPercentage + "%";
+  
+  const highlightPosition = (timestampToHighlight / duration) * 100;
+  highlightedTimestamp.style.left = highlightPosition + "%";
 
-// Update progress bar while the video is playing
-video.addEventListener("timeupdate", function () {
-    const percentage = (video.currentTime / video.duration) * 100;
-    progress.style.width = percentage + "%";
+  if (currentTime >= timestampToHighlight) {
+    highlightedTimestamp.style.backgroundColor = "#f00";
+  } else {
+    highlightedTimestamp.style.backgroundColor = "#0f0";
+  }
 });
 
-// Update video's currentTime when the progress bar is clicked
-progressBar.addEventListener("click", function (event) {
-  const offsetX = event.clientX - progressBar.getBoundingClientRect().left;
-  const percentage = (offsetX / progressBar.clientWidth) * 100;
-  video.currentTime = (percentage * video.duration) / 100;
-});
-video.addEventListener("loadedmetadata", function () {
-  // Add the marker positioning code here
+// Update the video timestamp when clicking on the custom progress bar
+document.getElementById("custom-progressbar").addEventListener("click", (event) => {
+  const progressBarRect = event.currentTarget.getBoundingClientRect();
+  const clickPosition = event.clientX - progressBarRect.left;
+  const progressBarWidth = progressBarRect.width;
+  const clickPercentage = clickPosition / progressBarWidth;
+  const newTime = video.duration * clickPercentage;
+  
+  video.currentTime = newTime;
 });
