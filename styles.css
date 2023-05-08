@@ -1,12 +1,34 @@
-/* Customize the buffer and seeker color in Chrome and Safari */
-video::-webkit-media-controls-panel {
-  background-color: transparent;
+/* Hide default progress bar and time displays */
+video::-webkit-media-controls-timeline,
+video::-webkit-media-controls-timeline-container,
+video::-webkit-media-controls-current-time-display,
+video::-webkit-media-controls-time-remaining-display {
+  display: none !important;
 }
 
-video::-webkit-media-controls-timeline-container {
-  background-color: #dddddd; /* Change this color to customize the buffer color */
+/* Style the custom progress bar wrapper */
+#custom-progressbar-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  pointer-events: none; /* Ignore mouse events as it is an overlay */
 }
 
-video::-webkit-media-controls-timeline {
-  background-color: #909090; /* Change this color to customize the seeker/played color */
+/* Style the custom progress bar */
+#custom-progressbar {
+  position: absolute;
+  width: 0;
+  height: 100%;
+  background-color: #909090;
+  pointer-events: all; /* Enable mouse events on this element */
+}
+
+/* Style the custom highlight */
+#highlighted-timestamp {
+  position: absolute;
+  top: -50%;
+  height: 200%;
+  width: 2px;
+  background-color: #0f0;
+  pointer-events: none; /* Disable mouse events on this element */
 }
