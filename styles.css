@@ -1,19 +1,12 @@
-#custom-progressbar {
-  position: relative;
-  width: 100%;
-  height: 5px;
-  background-color: #ddd;
+/* Customize the buffer and seeker color in Chrome and Safari */
+video::-webkit-media-controls-panel {
+  background-color: transparent;
 }
 
-#custom-seekbar {
-  position: absolute;
-  height: 100%;
-  background-color: #909;
+video::-webkit-media-controls-timeline-container {
+  background-color: #dddddd; /* Change this color to customize the buffer color */
 }
 
-#highlighted-timestamp {
-  position: absolute;
-  height: 100%;
-  width: 2px;
-  background-color: #0f0;
+video::-webkit-media-controls-timeline {
+  background-color: #909090; /* Change this color to customize the seeker/played color */
 }
