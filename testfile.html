@@ -1,25 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Video Progress Bar</title>
-    <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="video-container">
-        <video id="video-player" width="640" height="360" controls>
-            <source src="your-video-file.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div id="custom-progress-bar" class="progress-bar">
-            <div id="progress" class="progress"></div>
-          <!-- Add div elements with the 'marker' class for each timestamp -->
-          <div class="marker" data-timestamp="15" style="left: 0%;"></div>
-          <div class="marker" data-timestamp="60" style="left: 0%;"></div>
-          <div class="marker" data-timestamp="120" style="left: 0%;"></div>
-        </div>
-    </div>
-    <script src="script.js"></script>
+  <video id="my-video" width="640" height="360" controls>
+    <source src="path/to/your/video.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+  <div id="custom-progressbar">
+    <div id="custom-seekbar"></div>
+    <div id="highlighted-timestamp"></div>
+  </div>
+  <script>
+    // Add your custom JavaScript here
+  </script>
 </body>
 </html>
