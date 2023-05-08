@@ -1,34 +1,20 @@
-/* Hide default progress bar and time displays */
-video::-webkit-media-controls-timeline,
-video::-webkit-media-controls-timeline-container,
-video::-webkit-media-controls-current-time-display,
-video::-webkit-media-controls-time-remaining-display {
-  display: none !important;
-}
-
-/* Style the custom progress bar wrapper */
-#custom-progressbar-wrapper {
-  position: absolute;
-  width: 100%;
-  height: 5px;
-  pointer-events: none; /* Ignore mouse events as it is an overlay */
-}
-
-/* Style the custom progress bar */
 #custom-progressbar {
   position: absolute;
-  width: 0;
-  height: 100%;
-  background-color: #909090;
-  pointer-events: all; /* Enable mouse events on this element */
+  width: 640px;
+  height: 5px;
+  background-color: #ddd;
 }
 
-/* Style the custom highlight */
+#custom-seekbar {
+  position: absolute;
+  height: 100%;
+  background-color: #909;
+}
+
 #highlighted-timestamp {
   position: absolute;
   top: -50%;
   height: 200%;
-  width: 2px;
+  width: 3px;
   background-color: #0f0;
-  pointer-events: none; /* Disable mouse events on this element */
 }
