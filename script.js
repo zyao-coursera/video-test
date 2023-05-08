@@ -4,12 +4,17 @@ const customProgressbar = document.getElementById("custom-progressbar");
 const highlightedTimestamp = document.getElementById("highlighted-timestamp");
 const timestampToHighlight = 60; // Set the timestamp in seconds you want to highlight
 
-// Position the custom progress bar wrapper
-video.addEventListener("loadedmetadata", () => {
+// Function to position and set the width of the custom progress bar wrapper
+function setProgressBarWrapperSize() {
   const videoRect = video.getBoundingClientRect();
   const progressBarTop = videoRect.y + videoRect.height - 5; // Adjust 5 pixels from bottom
   customProgressbarWrapper.style.top = `${progressBarTop}px`;
-});
+  customProgressbarWrapper.style.width = `${videoRect.width}px`; // Set the width of the wrapper to match the video
+}
+
+// Position the custom progress bar wrapper
+video.addEventListener("loadedmetadata", setProgressBarWrapperSize);
+window.addEventListener("resize", setProgressBarWrapperSize);
 
 // Handle video time updates
 video.addEventListener("timeupdate", () => {
@@ -41,3 +46,7 @@ customProgressbarWrapper.addEventListener("click", (event) => {
 
   video.currentTime = newTime;
 });
+
+// Prevent the video from pausing when clicking on the custom progress bar
+document.getElementById("my-video").addEventListener("click", event => {
+  event.preventDefault(); // Prevent the click event from pausing the video
