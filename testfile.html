@@ -9,11 +9,15 @@
 <body>
     <div class="video-container">
         <video id="video-player" width="640" height="360" controls>
-            <source src="/Users/Eliza/Downloads/OpenAItest.mp4" type="video/mp4">
+            <source src="your-video-file.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div id="custom-progress-bar" class="progress-bar">
             <div id="progress" class="progress"></div>
+          <!-- Add div elements with the 'marker' class for each timestamp -->
+          <div class="marker" data-timestamp="15" style="left: 0%;"></div>
+          <div class="marker" data-timestamp="60" style="left: 0%;"></div>
+          <div class="marker" data-timestamp="120" style="left: 0%;"></div>
         </div>
     </div>
     <script src="script.js"></script>
