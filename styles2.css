@@ -1,0 +1,22 @@
+/* Style the chapters wrapper */
+#chapters-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Style chapter timestamps */
+.video-chapter {
+  position: relative;
+  margin-top: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.video-chapter::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  height: 5px;
+  width: 2px;
+  background-color: #000;
+}
